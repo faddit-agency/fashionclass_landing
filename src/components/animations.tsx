@@ -1,5 +1,5 @@
 import { useRef, useEffect, type ReactNode } from 'react';
-import { motion, useInView, useAnimation } from 'framer-motion';
+import { motion, useInView, useAnimation, type Variants } from 'framer-motion';
 
 interface FadeUpProps {
   children: ReactNode;
@@ -28,7 +28,7 @@ export function FadeUp({ children, delay = 0, className = '' }: FadeUpProps) {
         hidden: { opacity: 0, y: 30 },
         visible: { opacity: 1, y: 0 },
       }}
-      transition={{ duration: 0.6, delay, ease: [0.21, 0.47, 0.32, 0.98] }}
+      transition={{ duration: 0.6, delay, ease: [0.21, 0.47, 0.32, 0.98] as const }}
     >
       {children}
     </motion.div>
@@ -65,11 +65,11 @@ export function StaggerContainer({ children, className = '', staggerDelay = 0.1 
   );
 }
 
-export const staggerChild = {
+export const staggerChild: Variants = {
   hidden: { opacity: 0, y: 24 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.5, ease: [0.21, 0.47, 0.32, 0.98] },
+    transition: { duration: 0.5, ease: [0.21, 0.47, 0.32, 0.98] as const },
   },
 };
