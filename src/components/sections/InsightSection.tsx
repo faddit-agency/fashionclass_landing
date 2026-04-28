@@ -71,11 +71,11 @@ export function InsightSection() {
                   className="relative bg-white/[0.06] backdrop-blur-sm border border-white/10 rounded-2xl px-5 sm:px-6 py-3.5 text-center hover:bg-white/[0.1] transition-colors"
                 >
                   <span className="text-sm sm:text-[15px] font-semibold text-white whitespace-nowrap">
-                    {steps[i].label}
+                    {step.label}
                   </span>
                   <div
                     className="absolute -top-1 -right-1 w-3 h-3 rounded-full"
-                    style={{ backgroundColor: steps[i].color }}
+                    style={{ backgroundColor: step.color }}
                   />
                 </div>
                 {i < steps.length - 1 && (
