@@ -19,8 +19,12 @@ export function InstructorSection() {
               <div className="flex flex-col sm:flex-row items-start gap-6 sm:gap-8">
                 {/* Avatar */}
                 <div className="flex-shrink-0">
-                  <div className="w-20 h-20 sm:w-24 sm:h-24 bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl flex items-center justify-center">
-                    <User className="w-10 h-10 sm:w-12 sm:h-12 text-gray-400" />
+                  <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl overflow-hidden">
+                    <img
+                      src="/instructor-choi.png"
+                      alt="최성락 강사"
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                 </div>
 
