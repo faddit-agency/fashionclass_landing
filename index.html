@@ -27,6 +27,15 @@
     src="https://www.facebook.com/tr?id=2017134312494085&ev=PageView&noscript=1"
     /></noscript>
     <!-- End Meta Pixel Code -->
+    <!-- Lead Event Tracking -->
+    <script>
+    document.addEventListener('click', function(e) {
+      var el = e.target.closest('.cta-lead-btn');
+      if (el && typeof fbq === 'function') {
+        fbq('track', 'Lead');
+      }
+    });
+    </script>
   </head>
   <body>
     <div id="root"></div>

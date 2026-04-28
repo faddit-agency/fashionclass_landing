@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { LINKS } from '@/lib/constants';
-import { trackLead } from '@/lib/tracking';
 import { ArrowRight, Calendar } from 'lucide-react';
 
 export function HeroSection() {
@@ -89,7 +88,7 @@ export function HeroSection() {
             asChild
             className="w-full sm:w-auto bg-[#2478FF] hover:bg-[#1A5FD6] text-white rounded-xl h-[52px] px-8 text-[15px] font-semibold shadow-lg shadow-[#2478FF]/20 hover:shadow-[#2478FF]/30 transition-all cursor-pointer"
           >
-            <a href={LINKS.openChat} target="_blank" rel="noopener noreferrer" onClick={trackLead}>
+            <a href={LINKS.openChat} target="_blank" rel="noopener noreferrer" className="cta-lead-btn">
               오픈채팅방 입장하기
               <ArrowRight className="w-4 h-4 ml-2" />
             </a>
