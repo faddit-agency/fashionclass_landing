@@ -17,14 +17,14 @@ export function Footer() {
 
         {/* Business Info */}
         <div className="text-xs text-gray-600 leading-relaxed space-y-1">
-          <p>패클스 | 대표: 최성락</p>
-          <p>사업자등록번호: 000-00-00000</p>
-          <p>이메일: contact@packless.kr</p>
+          <p>주식회사 패딧 | 대표 : 최성락</p>
+          <p>사업자등록번호: 521-87-03693</p>
+          <p>이메일: contact@faddit.co.kr</p>
         </div>
 
         <div className="mt-8 pt-6 border-t border-white/5">
           <p className="text-xs text-gray-600">
-            © 2025 패클스(Packless). All rights reserved.
+            © 2025 주식회사 패딧(Faddit). All rights reserved.
           </p>
         </div>
       </div>
