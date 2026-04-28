@@ -77,29 +77,20 @@ export function HeroSection() {
           </p>
         </motion.div>
 
-        {/* CTA Buttons */}
+        {/* CTA Button */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.6 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-8"
+          className="flex items-center justify-center mb-8"
         >
           <Button
             asChild
             className="w-full sm:w-auto bg-[#2478FF] hover:bg-[#1A5FD6] text-white rounded-xl h-[52px] px-8 text-[15px] font-semibold shadow-lg shadow-[#2478FF]/20 hover:shadow-[#2478FF]/30 transition-all cursor-pointer"
           >
-            <a href={LINKS.freeClass} target="_blank" rel="noopener noreferrer">
-              무료 강의 신청하기
-              <ArrowRight className="w-4 h-4 ml-2" />
-            </a>
-          </Button>
-          <Button
-            asChild
-            variant="outline"
-            className="w-full sm:w-auto bg-white/[0.06] backdrop-blur-sm border-white/15 text-white hover:bg-white/10 hover:text-white rounded-xl h-[52px] px-8 text-[15px] font-semibold cursor-pointer"
-          >
             <a href={LINKS.openChat} target="_blank" rel="noopener noreferrer">
               오픈채팅방 입장하기
+              <ArrowRight className="w-4 h-4 ml-2" />
             </a>
           </Button>
         </motion.div>

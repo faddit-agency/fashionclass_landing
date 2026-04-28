@@ -32,23 +32,14 @@ export function FinalCTASection() {
         </FadeUp>
 
         <FadeUp delay={0.25}>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
+          <div className="flex items-center justify-center">
             <Button
               asChild
               className="w-full sm:w-auto bg-[#2478FF] hover:bg-[#1A5FD6] text-white rounded-xl h-[56px] px-10 text-base font-bold shadow-lg shadow-[#2478FF]/25 hover:shadow-[#2478FF]/35 transition-all cursor-pointer"
             >
-              <a href={LINKS.freeClass} target="_blank" rel="noopener noreferrer">
-                무료 강의 신청하기
-                <ArrowRight className="w-5 h-5 ml-2" />
-              </a>
-            </Button>
-            <Button
-              asChild
-              variant="outline"
-              className="w-full sm:w-auto bg-white/[0.06] backdrop-blur-sm border-white/15 text-white hover:bg-white/10 hover:text-white rounded-xl h-[56px] px-10 text-base font-bold cursor-pointer"
-            >
               <a href={LINKS.openChat} target="_blank" rel="noopener noreferrer">
                 오픈채팅방 입장하기
+                <ArrowRight className="w-5 h-5 ml-2" />
               </a>
             </Button>
           </div>
