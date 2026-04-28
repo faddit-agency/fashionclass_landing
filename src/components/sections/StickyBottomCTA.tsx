@@ -2,6 +2,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { LINKS } from '@/lib/constants';
+import { trackLead } from '@/lib/tracking';
 import { Calendar, ArrowRight } from 'lucide-react';
 
 export function StickyBottomCTA() {
@@ -38,7 +39,7 @@ export function StickyBottomCTA() {
               asChild
               className="bg-[#2478FF] hover:bg-[#1A5FD6] text-white rounded-xl h-11 px-7 text-sm font-bold shadow-lg shadow-[#2478FF]/20 cursor-pointer"
             >
-              <a href={LINKS.openChat} target="_blank" rel="noopener noreferrer">
+              <a href={LINKS.openChat} target="_blank" rel="noopener noreferrer" onClick={trackLead}>
                 오픈채팅방 입장하기
                 <ArrowRight className="w-4 h-4 ml-2" />
               </a>
@@ -55,7 +56,7 @@ export function StickyBottomCTA() {
               asChild
               className="w-full bg-[#2478FF] hover:bg-[#1A5FD6] text-white rounded-xl h-[52px] text-[15px] font-bold shadow-lg shadow-[#2478FF]/20 cursor-pointer"
             >
-              <a href={LINKS.openChat} target="_blank" rel="noopener noreferrer">
+              <a href={LINKS.openChat} target="_blank" rel="noopener noreferrer" onClick={trackLead}>
                 오픈채팅방 입장하기
                 <ArrowRight className="w-4 h-4 ml-2" />
               </a>
