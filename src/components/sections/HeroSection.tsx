@@ -88,7 +88,7 @@ export function HeroSection() {
             asChild
             className="w-full sm:w-auto bg-[#2478FF] hover:bg-[#1A5FD6] text-white rounded-xl h-[52px] px-8 text-[15px] font-semibold shadow-lg shadow-[#2478FF]/20 hover:shadow-[#2478FF]/30 transition-all cursor-pointer"
           >
-            <a href={LINKS.openChat} target="_blank" rel="noopener noreferrer" className="cta-lead-btn">
+            <a href={LINKS.openChat} target="_blank" rel="noopener noreferrer" data-meta-lead="openchat">
               오픈채팅방 입장하기
               <ArrowRight className="w-4 h-4 ml-2" />
             </a>

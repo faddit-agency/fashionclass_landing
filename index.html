@@ -30,8 +30,9 @@
     <!-- Lead Event Tracking -->
     <script>
     document.addEventListener('click', function(e) {
-      var el = e.target.closest('.cta-lead-btn');
+      var el = e.target.closest('[data-meta-lead="openchat"]');
       if (el && typeof fbq === 'function') {
+        console.log('Meta Lead Event Tracked');
         fbq('track', 'Lead');
       }
     });
