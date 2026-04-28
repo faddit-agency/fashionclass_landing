@@ -13,7 +13,7 @@ export function Header() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <a href="#" className="flex items-center">
-            <img src="/logo.svg" alt="패클스" className="h-7" />
+            <img src="/logo.svg" alt="패클스" className="h-5" />
           </a>
 
           {/* Desktop Nav */}

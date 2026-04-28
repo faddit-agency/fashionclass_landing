@@ -51,31 +51,39 @@ export function InsightSection() {
         </FadeUp>
 
         {/* Process Flow */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-0">
-          {steps.map((step, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={isInView ? { opacity: 1, scale: 1 } : {}}
-              transition={{ duration: 0.4, delay: 0.4 + i * 0.12 }}
-              className="flex items-center gap-3 sm:gap-0"
-            >
-              <div
-                className="relative bg-white/[0.06] backdrop-blur-sm border border-white/10 rounded-2xl px-5 sm:px-6 py-3.5 text-center hover:bg-white/[0.1] transition-colors"
+        <div className="grid grid-cols-3 gap-2 sm:flex sm:flex-row sm:items-center sm:justify-center sm:gap-0">
+          {steps.map((step, i) => {
+            const isLast = i === steps.length - 1;  // 정부지원사업
+            const isFourth = i === 3;                // 원가 → 가운데 열
+            return (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={isInView ? { opacity: 1, scale: 1 } : {}}
+                transition={{ duration: 0.4, delay: 0.4 + i * 0.12 }}
+                className={[
+                  'flex items-center gap-3 sm:gap-0',
+                  isLast ? 'col-span-3 justify-center' : '',
+                  isFourth ? 'col-start-2 sm:col-start-auto' : '',
+                ].join(' ')}
               >
-                <span className="text-sm sm:text-[15px] font-semibold text-white whitespace-nowrap">
-                  {step.label}
-                </span>
                 <div
-                  className="absolute -top-1 -right-1 w-3 h-3 rounded-full"
-                  style={{ backgroundColor: step.color }}
-                />
-              </div>
-              {i < steps.length - 1 && (
-                <ArrowRight className="w-4 h-4 text-gray-500 mx-2 hidden sm:block flex-shrink-0" />
-              )}
-            </motion.div>
-          ))}
+                  className="relative bg-white/[0.06] backdrop-blur-sm border border-white/10 rounded-2xl px-5 sm:px-6 py-3.5 text-center hover:bg-white/[0.1] transition-colors"
+                >
+                  <span className="text-sm sm:text-[15px] font-semibold text-white whitespace-nowrap">
+                    {steps[i].label}
+                  </span>
+                  <div
+                    className="absolute -top-1 -right-1 w-3 h-3 rounded-full"
+                    style={{ backgroundColor: steps[i].color }}
+                  />
+                </div>
+                {i < steps.length - 1 && (
+                  <ArrowRight className="w-4 h-4 text-gray-500 mx-2 hidden sm:block flex-shrink-0" />
+                )}
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>
