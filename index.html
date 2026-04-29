@@ -1,77 +1,104 @@
 <!doctype html>
 <html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>패클스(Packless) - 패션 브랜드, 감이 아닌 구조로 성장하는 방법</title>
-    <meta name="description" content="브랜딩, 마케팅, 생산, 원가, 정부지원사업까지. 패션 브랜드를 구조적으로 성장시키는 무료 강의와 커뮤니티. 5월 25일 온라인 무료 강의에서 공개합니다." />
-    <meta property="og:title" content="패클스(Packless) - 패션 브랜드, 감이 아닌 구조로 성장하는 방법" />
-    <meta property="og:description" content="브랜딩부터 생산, 원가, 정부지원사업까지. 감이 아닌 구조로 패션 브랜드를 성장시키세요." />
-    <meta property="og:type" content="website" />
-    <meta name="theme-color" content="#0a0a0a" />
-    <!-- Meta Pixel Code -->
-    <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>패클스(Packless) - 패션 브랜드, 감이 아닌 구조로 성장하는 방법</title>
+
+  <meta name="description"
+    content="브랜딩, 마케팅, 생산, 원가, 정부지원사업까지. 패션 브랜드를 구조적으로 성장시키는 무료 강의와 커뮤니티. 5월 25일 온라인 무료 강의에서 공개합니다." />
+
+  <meta property="og:title" content="패클스(Packless) - 패션 브랜드, 감이 아닌 구조로 성장하는 방법" />
+  <meta property="og:description" content="브랜딩부터 생산, 원가, 정부지원사업까지. 감이 아닌 구조로 패션 브랜드를 성장시키세요." />
+  <meta property="og:type" content="website" />
+
+  <meta name="theme-color" content="#0a0a0a" />
+
+  <!-- Meta Pixel -->
+  <script>
+    !function (f, b, e, v, n, t, s) {
+      if (f.fbq) return; n = f.fbq = function () {
+        n.callMethod ?
+          n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+      };
+      if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+      n.queue = []; t = b.createElement(e); t.async = !0;
+      t.src = v; s = b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t, s)
+    }
+      (window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+
     fbq('init', '2017134312494085');
     fbq('track', 'PageView');
-    </script>
-    <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=2017134312494085&ev=PageView&noscript=1"
-    /></noscript>
-    <!-- End Meta Pixel Code -->
-    <!-- Lead Event Tracking -->
-    <script>
-    (function() {
+  </script>
+
+  <noscript>
+    <img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=2017134312494085&ev=PageView&noscript=1" />
+  </noscript>
+
+  <!-- Lead Tracking (최종 안정 버전) -->
+  <script>
+    (function () {
       var leadFired = false;
-      document.addEventListener('click', function(e) {
+
+      document.addEventListener('click', function (e) {
         var button = e.target.closest('[data-meta-lead="free-class"]');
-        if (button && !leadFired) {
-          var href = button.getAttribute('href');
-          if (!href) return;
+        if (!button) return;
 
-          e.preventDefault();
-          leadFired = true; // 동일 화면 내 중복 발화 방지
+        var href = button.getAttribute('href');
+        var target = button.getAttribute('target');
 
-          var navigated = false;
-          var move = function() {
-            if (!navigated) {
-              navigated = true;
-              window.location.href = href;
-            }
-          };
+        if (!href) return;
 
-          console.log('[Meta Pixel] Firing Lead event (Once per page)...');
-          if (typeof fbq === 'function') {
-            fbq('track', 'Lead', {}, {
-              event_callback: move
-            });
-            // 콜백이 작동하지 않을 경우를 대비한 500ms 안전 장치
-            setTimeout(move, 500);
+        e.preventDefault();
+
+        var moved = false;
+
+        var move = function () {
+          if (moved) return;
+          moved = true;
+
+          if (target === '_blank') {
+            window.open(href, '_blank', 'noopener,noreferrer');
           } else {
-            move();
-          }
-        } else if (button && leadFired) {
-          // 이미 발화된 경우 트래킹 없이 즉시 이동
-          var href = button.getAttribute('href');
-          if (href) {
-            e.preventDefault();
             window.location.href = href;
           }
+        };
+
+        // 이미 Lead 발화된 경우 → 바로 이동
+        if (leadFired) {
+          move();
+          return;
         }
+
+        leadFired = true;
+
+        console.log('[Meta Pixel] Lead Fired');
+
+        if (typeof fbq === 'function') {
+          fbq('track', 'Lead', {}, {
+            event_callback: move
+          });
+
+          // fallback (콜백 실패 대비)
+          setTimeout(move, 500);
+        } else {
+          move();
+        }
+
       }, true);
     })();
-    </script>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+  </script>
+
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.tsx"></script>
+</body>
+
 </html>
