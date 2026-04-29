@@ -51,6 +51,59 @@ export function InstructorSection() {
                       패션 브랜드가 지속적으로 성장할 수 있는 방향을 제시합니다.
                     </p>
                   </div>
+
+                  {/* 주요 연혁 */}
+                  <div className="mt-8 pt-8 border-t border-gray-50">
+                    <h4 className="text-sm font-bold text-gray-900 mb-6 flex items-center gap-2">
+                      <div className="w-1 h-4 bg-[#2478FF] rounded-full" />
+                      주요 연혁
+                    </h4>
+                    
+                    <div className="space-y-8">
+                      {/* 2025 */}
+                      <div>
+                        <div className="text-[13px] font-bold text-[#2478FF] mb-3">2025</div>
+                        <div className="space-y-2.5">
+                          {[
+                            { month: '11', text: 'TIPS R&D 최종 선정' },
+                            { month: '09', text: 'SEED 투자 유치 - (주) CNT 테크' },
+                            { month: '07', text: '2024 경희대학교 캠퍼스타운 \'최우수 기업\' 선정' },
+                            { month: '05', text: '경희대학교 RISE 사업 - \'경희패션크리에이터\' 2기 사업 확대' },
+                            { month: '03', text: '15기 경기북부 청년창업사관학교 최종선정' },
+                            { month: '02', text: '동대문구 패션봉제협회 3사 MOU 체결' },
+                            { month: '01', text: '동대문구청 \'동고리\' 운영 계약 체결(1,800개 업장)' },
+                            { month: '01', text: '경희대학교 의상학과 교육 프로그램 2차 계약 체결' },
+                          ].map((item, i) => (
+                            <div key={i} className="flex gap-3 text-[13px] sm:text-[13.5px]">
+                              <span className="text-gray-400 font-medium tabular-nums flex-shrink-0">{item.month}</span>
+                              <span className="text-gray-600">{item.text}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* 2024 */}
+                      <div>
+                        <div className="text-[13px] font-bold text-gray-400 mb-3">2024</div>
+                        <div className="space-y-2.5">
+                          {[
+                            { month: '12', text: '사회연대은행 \'알파 라운드\' 최종 3위(상금)' },
+                            { month: '11', text: '국내 최대 봉제 일감 수주 플랫폼 \'봉제네\' MOU 체결' },
+                            { month: '09', text: '경희대학교 산학협력단 \'경희 패션 크리에이터 사업단 1기\' 수주' },
+                            { month: '08', text: '2024 경희대학교 캠퍼스타운 \'우수 기업\' 선정' },
+                            { month: '06', text: '사회연대은행 \'알파 라운드\' 선정 (지원금)' },
+                            { month: '05', text: '예비 창업패키지 선정 (패션봉제)' },
+                            { month: '05', text: '경희대학교 캠퍼스타운 입주기업 선정' },
+                          ].map((item, i) => (
+                            <div key={i} className="flex gap-3 text-[13px] sm:text-[13.5px]">
+                              <span className="text-gray-400 font-medium tabular-nums flex-shrink-0">{item.month}</span>
+                              <span className="text-gray-600">{item.text}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
