@@ -35,7 +35,7 @@ export function Header() {
               asChild
               className="bg-[#2478FF] hover:bg-[#1A5FD6] text-white rounded-xl px-5 h-10 text-sm font-semibold cursor-pointer"
             >
-              <a href={LINKS.openChat} target="_blank" rel="noopener noreferrer">
+              <a href={LINKS.openChat} data-meta-lead="free-class">
                 오픈채팅방 입장하기
               </a>
             </Button>
@@ -78,7 +78,7 @@ export function Header() {
                   asChild
                   className="w-full bg-[#2478FF] hover:bg-[#1A5FD6] text-white rounded-xl h-12 text-sm font-semibold cursor-pointer"
                 >
-                  <a href={LINKS.openChat} target="_blank" rel="noopener noreferrer">
+                  <a href={LINKS.openChat} data-meta-lead="free-class">
                     오픈채팅방 입장하기
                   </a>
                 </Button>

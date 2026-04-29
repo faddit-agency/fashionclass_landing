@@ -29,13 +29,45 @@
     <!-- End Meta Pixel Code -->
     <!-- Lead Event Tracking -->
     <script>
-    document.addEventListener('click', function(e) {
-      var el = e.target.closest('[data-meta-lead="openchat"]');
-      if (el && typeof fbq === 'function') {
-        console.log('Meta Lead Event Tracked');
-        fbq('track', 'Lead');
-      }
-    });
+    (function() {
+      var leadFired = false;
+      document.addEventListener('click', function(e) {
+        var button = e.target.closest('[data-meta-lead="free-class"]');
+        if (button && !leadFired) {
+          var href = button.getAttribute('href');
+          if (!href) return;
+
+          e.preventDefault();
+          leadFired = true; // 동일 화면 내 중복 발화 방지
+
+          var navigated = false;
+          var move = function() {
+            if (!navigated) {
+              navigated = true;
+              window.location.href = href;
+            }
+          };
+
+          console.log('[Meta Pixel] Firing Lead event (Once per page)...');
+          if (typeof fbq === 'function') {
+            fbq('track', 'Lead', {}, {
+              event_callback: move
+            });
+            // 콜백이 작동하지 않을 경우를 대비한 500ms 안전 장치
+            setTimeout(move, 500);
+          } else {
+            move();
+          }
+        } else if (button && leadFired) {
+          // 이미 발화된 경우 트래킹 없이 즉시 이동
+          var href = button.getAttribute('href');
+          if (href) {
+            e.preventDefault();
+            window.location.href = href;
+          }
+        }
+      }, true);
+    })();
     </script>
   </head>
   <body>

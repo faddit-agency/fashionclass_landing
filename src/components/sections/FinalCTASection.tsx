@@ -37,7 +37,7 @@ export function FinalCTASection() {
               asChild
               className="w-full sm:w-auto bg-[#2478FF] hover:bg-[#1A5FD6] text-white rounded-xl h-[56px] px-10 text-base font-bold shadow-lg shadow-[#2478FF]/25 hover:shadow-[#2478FF]/35 transition-all cursor-pointer"
             >
-              <a href={LINKS.openChat} target="_blank" rel="noopener noreferrer" data-meta-lead="openchat">
+              <a href={LINKS.openChat} data-meta-lead="free-class">
                 오픈채팅방 입장하기
                 <ArrowRight className="w-5 h-5 ml-2" />
               </a>
